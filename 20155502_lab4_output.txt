@@ -1,0 +1,5 @@
+Vocabulary Size: 16122
+Training Set Size: 2000
+Test Set Size: 400
+Evalution: Accuracy: 0.865500	Precision: 0.928072	Recall: 0.805469	Macro-F1: 0.846657
+Evalution: Accuracy: 0.515000	Precision: 0.373430	Recall: 0.285694	Macro-F1: 0.284428
