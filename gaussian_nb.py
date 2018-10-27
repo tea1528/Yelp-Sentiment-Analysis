@@ -7,6 +7,10 @@ from nltk.corpus import stopwords
 import string
 import pandas as pd
 import sklearn.naive_bayes as sn
+from sklearn.linear_model import LogisticRegressionCV
+from nltk.stem import PorterStemmer
+import re
+import spacy
 
 stop_words = set(stopwords.words('english') + list(string.punctuation))
 
@@ -28,6 +32,19 @@ def tokenize(text):
             tokens.append(word)
 
     return tokens
+
+
+NLP = spacy.load('en')
+
+def tokenizer(comment):
+    comment = re.sub(
+        r"[\*\"“”\n\\…\+\-\/\=\(\)‘•:\[\]\|’\!;]", " ", str(comment))
+    comment = re.sub(r"[ ]+", " ", comment)
+    comment = re.sub(r"\!+", "!", comment)
+    comment = re.sub(r"\,+", ",", comment)
+    comment = re.sub(r"\?+", "?", comment)
+    comment = re.sub(r"n't+", "not", comment)
+    return [x.text for x in NLP.tokenizer(comment) if x.text != " "]
 
 def get_bagofwords(data, vocab_dict):
     '''
@@ -61,7 +78,11 @@ def read_data(file_name, vocab=None):
     https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html
     """
     df = pd.read_csv(file_name)
-    df['words'] = df['text'].apply(tokenize)
+    df['words'] = df['text'].apply(tokenizer)
+
+    stemmer = PorterStemmer()
+    df['words'] = df['words'].apply(lambda x: [stemmer.stem(y) for y in x])
+
 
     if vocab is None:
         vocab = set()
@@ -171,11 +192,13 @@ if __name__ == '__main__':
     # acc, precision, recall, f1 = evaluate(grt_label["pred"], test_data_pre)
     # print("Evalution: Accuracy: %f\tPrecision: %f\tRecall: %f\tMacro-F1: %f" % (acc, precision, recall, f1))
 
-    clf = sn.MultinomialNB()
-    clf.fit(train_data_matrix.toarray(), train_data_label)
-    predicted = clf.predict(test_data_matrix.toarray())
+    # clf = sn.MultinomialNB()
+    clf = LogisticRegressionCV(cv=5, multi_class='multinomial', solver='lbfgs')
+    clf.fit(train_data_matrix, train_data_label)
+    predicted = clf.predict(test_data_matrix)
 
+    print("Saving predicted result on test set into a csv file...")
     sub_df = pd.DataFrame()
     sub_df["id"] = test_id_list
     sub_df["pred"] = predicted
-    sub_df.to_csv("sample.csv", index=False)
+    sub_df.to_csv("log.csv", index=False)
