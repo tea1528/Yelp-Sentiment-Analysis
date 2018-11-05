@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 import string
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegressionCV
 from nltk.stem import PorterStemmer
 import re
@@ -44,8 +45,9 @@ def tokenizer(comment):
     comment = re.sub(r"[ ]+", " ", comment)
     comment = re.sub(r"\!+", "!", comment)
     comment = re.sub(r"\,+", ",", comment)
+    comment = re.sub(r"\.+", " ", comment)
     comment = re.sub(r"\?+", "?", comment)
-    comment = re.sub("n't", "not", comment)
+    comment = comment.replace("n't", "not")
     comment = comment.lower()
     return [x.text for x in NLP.tokenizer(comment) if x.text != " "]
 
@@ -128,7 +130,7 @@ if __name__ == '__main__':
     # print("Evalution: Accuracy: %f\tPrecision: %f\tRecall: %f\tMacro-F1: %f" % (acc, precision, recall, f1))
 
     # clf = sn.MultinomialNB()
-    clf = LogisticRegressionCV(cv=5, multi_class='multinomial', solver='lbfgs',
+    clf = LogisticRegressionCV(cv=10, multi_class='multinomial', solver='lbfgs',
                                n_jobs=-1, random_state=0)
     clf.fit(train_data_matrix, train_data_label)
     predicted = clf.predict(test_data_matrix)
@@ -143,4 +145,4 @@ if __name__ == '__main__':
     sub_df = pd.DataFrame()
     sub_df["id"] = test_id_list
     sub_df["pred"] = predicted
-    sub_df.to_csv("log_tfidf.csv", index=False)
+    sub_df.to_csv("log.csv", index=False)

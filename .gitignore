@@ -1,2 +1,6 @@
-.csv
-.pkl
+*.csv
+*.pkl
+.ipynb_checkpoints/*
+.vector_cache/*
+.idea/*
+
