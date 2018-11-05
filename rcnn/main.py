@@ -6,11 +6,9 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 import torch.optim as optim
 import numpy as np
-# from models.CNN import CNN
 from models.RCNN import RCNN
 
-torch.cuda.set_device(3)
-
+# define hyperparameters
 learning_rate = 1e-4
 batch_size = 64
 output_size = 5
@@ -18,6 +16,7 @@ hidden_size = 100
 embedding_length = 300
 epochs = 20
 
+# read text dataset
 TEXT, vocab_size, word_embeddings, train_iter, valid_iter, test_iter = load_data.load_dataset(embed_len=embedding_length, batch_size=batch_size)
 
 def clip_gradient(model, clip_value):
@@ -29,10 +28,7 @@ def train_model(model, train_iter, epoch, learning_rate):
     total_epoch_loss = 0
     total_epoch_acc = 0
     model.cuda()
-    
-#     if epoch >= 10:
-#         learning_rate /= (10 * int(epoch / 10))
-        
+            
     optim = torch.optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=learning_rate, weight_decay=0)
 
     steps = 0
@@ -89,7 +85,6 @@ def eval_model(model, val_iter):
 	
 
 model = RCNN(batch_size, output_size, hidden_size, vocab_size, embedding_length, word_embeddings)
-# model = CNN(batch_size, output_size, 1, 300, [5, 6, 7], 0.8, vocab_size, embedding_length, word_embeddings)
 loss_fn = F.cross_entropy
 
 for epoch in range(epochs):
@@ -98,8 +93,4 @@ for epoch in range(epochs):
     
     print(f'Epoch: {epoch+1:02}, Train Loss: {train_loss:.3f}, Train Acc: {train_acc:.2f}%, Val. Loss: {val_loss:3f}, Val. Acc: {val_acc:.2f}%')
     
-torch.save(model, 'attn.pth')
-# test_loss, test_acc = eval_model(model, test_iter)
-# print(f'Test Loss: {test_loss:.3f}, Test Acc: {test_acc:.2f}%')
-
-
+torch.save(model, 'rcnn.pth')

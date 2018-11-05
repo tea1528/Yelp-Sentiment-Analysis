@@ -22,7 +22,7 @@ def tokenize(text):
     :param text: a doc with multiple sentences, type: str
     return a word list, type: list
     https://textminingonline.com/dive-into-nltk-part-ii-sentence-tokenize-and-word-tokenize
-    e.g. 
+    e.g.
     Input: 'It is a nice day. I am happy.'
     Output: ['it', 'is', 'a', 'nice', 'day', 'i', 'am', 'happy']
     '''
@@ -121,15 +121,6 @@ if __name__ == '__main__':
     test_id_list, _, test_data_matrix, _, _ = read_data("all/test.csv", vocab=vocab, tfidf=tfidf)
     print("Test Set Size:", len(test_id_list))
 
-    # and later you can load it
-    # with open('filename.pkl', 'rb') as f:
-    #     clf = pickle.load(f)
-
-    # grt_label = pd.read_csv("all/sample_submission.csv")
-    # acc, precision, recall, f1 = evaluate(grt_label["pred"], test_data_pre)
-    # print("Evalution: Accuracy: %f\tPrecision: %f\tRecall: %f\tMacro-F1: %f" % (acc, precision, recall, f1))
-
-    # clf = sn.MultinomialNB()
     clf = LogisticRegressionCV(cv=10, multi_class='multinomial', solver='lbfgs',
                                n_jobs=-1, random_state=0)
     clf.fit(train_data_matrix, train_data_label)
@@ -138,8 +129,6 @@ if __name__ == '__main__':
     # now you can save it to a file
     with open('log_tfidf.pkl', 'wb') as f:
         pickle.dump(clf, f)
-
-
 
     print("Saving predicted result on test set into a csv file...")
     sub_df = pd.DataFrame()

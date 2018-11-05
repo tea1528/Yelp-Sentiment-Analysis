@@ -11,9 +11,11 @@ from torchtext.vocab import Vectors, GloVe
 
 import re
 import spacy
+
 NLP = spacy.load('en_core_web_md')
-MAX_CHARS = 20000
+
 def tokenizer(comment):
+    # preprocessing using regular expression
     comment = re.sub(
         r"[\*\"“”\n\\…\+\-\/\=\(\)‘•:\[\]\|’\!;]", " ", 
         str(comment))
@@ -21,21 +23,6 @@ def tokenizer(comment):
     comment = re.sub(r"\!+", "!", comment)
     comment = re.sub(r"\,+", ",", comment)
     comment = re.sub(r"\?+", "?", comment)
-#     comment = comment.replace("n't", "not")
-    # adopted from Yoon Kim's 2014 CNN paper
-#     string = re.sub(r"[^A-Za-z0-9(),!?\'\`]", " ", string)
-#     string = re.sub(r"\'s", " \'s", string)
-#     string = re.sub(r"\'ve", " \'ve", string)
-#     string = re.sub(r"n\'t", " n\'t", string)
-#     string = re.sub(r"\'re", " \'re", string)
-#     string = re.sub(r"\'d", " \'d", string)
-#     string = re.sub(r"\'ll", " \'ll", string)
-#     string = re.sub(r",", " , ", string)
-#     string = re.sub(r"!", " ! ", string)
-#     string = re.sub(r"\(", " \( ", string)
-#     string = re.sub(r"\)", " \) ", string)
-#     string = re.sub(r"\?", " \? ", string)
-#     string = re.sub(r"\s{2,}", " ", string)
     return [
         x.text for x in NLP.tokenizer(comment) if x.text != " "]
 
