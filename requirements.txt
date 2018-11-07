@@ -1,0 +1,8 @@
+torch==0.4.1
+pandas==0.22.0
+scipy==1.1.0
+numpy==1.15.3
+nltk==3.3
+torchtext==0.4.0
+spacy==2.0.16
+scikit_learn==0.20.0
