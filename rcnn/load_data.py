@@ -47,21 +47,23 @@ def load_dataset(embed_len=300, batch_size=32):
     TEXT = data.Field(sequential=True, tokenize=tokenizer, lower=True, include_lengths=True, batch_first=True, fix_length=200)
     LABEL = data.LabelField(dtype=torch.float)
     
-    fields = [(None, None), ('text', TEXT), ('label', LABEL)]
+    fields = [(None, None), (None, None), (None, None), (None, None), (None, None), ('label', LABEL), ('text', TEXT), (None, None), (None, None)]
     
     train_data = data.TabularDataset(
-        path='all/train.csv', format='csv', 
+        path='data/train.csv', format='csv', 
         skip_header=True,
         fields=fields)
     
-    test_data = data.TabularDataset(
-        path='all/test.csv', format='csv', 
+
+    valid_data = data.TabularDataset(
+        path='data/valid.csv', format='csv', 
         skip_header=True,
-        fields=[
-            ('id', None),
-            ('text', TEXT),
-            ('label', None)
-        ])
+        fields=fields)
+
+    test_data = data.TabularDataset(
+        path='data/test.csv', format='csv', 
+        skip_header=True,
+        fields=fields)
     
     TEXT.build_vocab(train_data, vectors=GloVe(name='840B', dim=embed_len))
     LABEL.build_vocab(train_data)
@@ -73,7 +75,7 @@ def load_dataset(embed_len=300, batch_size=32):
     print ("Label Mapping: ", LABEL.vocab.stoi)
     print ("Most frequent: ", TEXT.vocab.freqs.most_common(20))
 
-    train_data, valid_data = train_data.split(split_ratio=0.8) # Further splitting of training_data to create new training_data & validation_data
+    # train_data, valid_data = train_data.split(split_ratio=0.8) # Further splitting of training_data to create new training_data & validation_data
     train_iter, valid_iter, test_iter = data.BucketIterator.splits((train_data, valid_data, test_data), batch_size=batch_size, sort_key=lambda x: len(x.text), repeat=False, shuffle=True)
 
     '''Alternatively we can also use the default configurations'''
