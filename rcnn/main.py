@@ -6,15 +6,16 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 import torch.optim as optim
 import numpy as np
-from models.RCNN import RCNN
+#from models.RCNN import RCNN
+from models.selfAttention import SelfAttention
 
 # define hyperparameters
-learning_rate = 1e-4
-batch_size = 64
+learning_rate = 1e-3
+batch_size = 128
 output_size = 5
 hidden_size = 100
 embedding_length = 300
-epochs = 20
+epochs = 30
 
 # read text dataset
 TEXT, vocab_size, word_embeddings, train_iter, valid_iter, test_iter = load_data.load_dataset(embed_len=embedding_length, batch_size=batch_size)
@@ -35,7 +36,7 @@ def train_model(model, train_iter, epoch, learning_rate):
     model.train()
     for idx, batch in enumerate(train_iter):
         text = batch.text[0]
-        target = batch.label
+        target = batch.stars
         target = torch.autograd.Variable(target).long()
         if torch.cuda.is_available():
             text = text.cuda()
@@ -69,7 +70,7 @@ def eval_model(model, val_iter):
             text = batch.text[0]
             if (text.size()[0] is not batch_size):
                 continue
-            target = batch.label
+            target = batch.stars
             target = torch.autograd.Variable(target).long()
             if torch.cuda.is_available():
                 text = text.cuda()
@@ -84,7 +85,7 @@ def eval_model(model, val_iter):
     return total_epoch_loss/len(val_iter), total_epoch_acc/len(val_iter)
 	
 
-model = RCNN(batch_size, output_size, hidden_size, vocab_size, embedding_length, word_embeddings)
+model = SelfAttention(batch_size, output_size, hidden_size, vocab_size, embedding_length, word_embeddings)
 loss_fn = F.cross_entropy
 
 for epoch in range(epochs):

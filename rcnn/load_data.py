@@ -10,10 +10,12 @@ from torchtext import datasets
 from torchtext.vocab import Vectors, GloVe
 
 import re
-import spacy
+import nltk
+from nltk.corpus import stopwords
+import string
 
-NLP = spacy.load('en_core_web_md')
-
+stop_words = set(stopwords.words('english') + list(string.punctuation))
+"""
 def tokenizer(comment):
     # preprocessing using regular expression
     comment = re.sub(
@@ -24,7 +26,26 @@ def tokenizer(comment):
     comment = re.sub(r"\,+", ",", comment)
     comment = re.sub(r"\?+", "?", comment)
     return [
-        x.text for x in NLP.tokenizer(comment) if x.text != " "]
+        x.text for x in nltk.word_tokenize(comment) if x.text != " "]
+"""
+def tokenizer(text):
+    '''
+    :param text: a doc with multiple sentences, type: str
+    return a word list, type: list
+    https://textminingonline.com/dive-into-nltk-part-ii-sentence-tokenize-and-word-tokenize
+    e.g.
+    Input: 'It is a nice day. I am happy.'
+    Output: ['it', 'is', 'a', 'nice', 'day', 'i', 'am', 'happy']
+    '''
+    tokens = []
+    # YOUR CODE HERE
+    for word in nltk.word_tokenize(text):
+        word = word.lower()
+        # remove stop_words (commonly used meaningless words) and numbers
+        if word not in stop_words and not word.isnumeric():
+            tokens.append(word)
+
+    return tokens
 
 def load_dataset(embed_len=300, batch_size=32):
 
@@ -45,18 +66,18 @@ def load_dataset(embed_len=300, batch_size=32):
     
 #     tokenize = lambda x: x.split()
     TEXT = data.Field(sequential=True, tokenize=tokenizer, lower=True, include_lengths=True, batch_first=True, fix_length=200)
-    LABEL = data.LabelField(dtype=torch.float)
+    LABEL = data.LabelField()
     
-    fields = [(None, None), (None, None), (None, None), (None, None), (None, None), ('label', LABEL), ('text', TEXT), (None, None), (None, None)]
+    fields = [('stars', LABEL), ('text', TEXT)]
     
     train_data = data.TabularDataset(
-        path='data/train.csv', format='csv', 
+        path='data/mod_train.csv', format='csv', 
         skip_header=True,
         fields=fields)
     
 
     valid_data = data.TabularDataset(
-        path='data/valid.csv', format='csv', 
+        path='data/mod_valid.csv', format='csv', 
         skip_header=True,
         fields=fields)
 
@@ -65,7 +86,7 @@ def load_dataset(embed_len=300, batch_size=32):
         skip_header=True,
         fields=fields)
     
-    TEXT.build_vocab(train_data, vectors=GloVe(name='840B', dim=embed_len))
+    TEXT.build_vocab(train_data, vectors=GloVe(name='6B', dim=embed_len))
     LABEL.build_vocab(train_data)
 
     word_embeddings = TEXT.vocab.vectors
