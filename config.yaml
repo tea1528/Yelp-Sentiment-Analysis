@@ -1,0 +1,20 @@
+testing:
+        batch_size: 128
+        output_size: 5
+        hidden_size: 256
+        emb_size: 300
+        gpu_device: "cuda: 3"
+        saved_path: "checkpoint/rcnn_ep7.pth"
+        valid_path: "data/mod_valid.csv"
+        test_path: "data/test_gt.csv"
+
+training:
+        lr: 0.001
+        batch_size: 128
+        output_size: 5
+        hidden_size: 256
+        emb_size: 300
+        epochs: 30
+        gpu_device: "cuda: 3"
+        train_path: "data/mod_train.csv"
+        valid_path: "data/mod_valid.csv"

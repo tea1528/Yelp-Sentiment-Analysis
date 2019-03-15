@@ -1,0 +1,123 @@
+-------Loading Data--------
+Length of Text Vocabulary: 82174
+Vector size of Text Vocabulary:  torch.Size([82174, 300])
+Label Length: 5
+Label Mapping:  defaultdict(<function _default_unk_index at 0x7f05fedaf268>, {'5': 0, '4': 1, '1': 2, '3': 3, '2': 4})
+Most frequent:  [('the', 552891), ('and', 387193), ('i', 340429), ('a', 280821), ('to', 273912), ('was', 204645), ('it', 165267), ('of', 159128), ('is', 137961), ('for', 133581), ('in', 125574), ('my', 108601), ('that', 100386), ('we', 93376), ('they', 93247), ('you', 91329), ('with', 91262), ('this', 90064), ('but', 83384), ('on', 77544)]
+Epoch: 1, Idx: 100, Training Loss: 0.9805, Training Accuracy:  63.28%
+Epoch: 1, Idx: 200, Training Loss: 0.9540, Training Accuracy:  57.03%
+Epoch: 1, Idx: 300, Training Loss: 0.8524, Training Accuracy:  65.62%
+Epoch: 1, Idx: 400, Training Loss: 0.9205, Training Accuracy:  61.72%
+Epoch: 1, Idx: 500, Training Loss: 0.8383, Training Accuracy:  70.31%
+Epoch: 1, Idx: 600, Training Loss: 0.8423, Training Accuracy:  62.50%
+Epoch: 1, Idx: 700, Training Loss: 0.8221, Training Accuracy:  62.50%
+Epoch: 01, Train Loss: 0.866, Train Acc: 63.34%, Val. Loss: 0.748233, Val. Acc: 66.99%
+Saving model for epoch 1...
+Epoch: 2, Idx: 100, Training Loss: 0.7889, Training Accuracy:  69.53%
+Epoch: 2, Idx: 200, Training Loss: 0.8561, Training Accuracy:  60.94%
+Epoch: 2, Idx: 300, Training Loss: 0.7610, Training Accuracy:  62.50%
+Epoch: 2, Idx: 400, Training Loss: 0.7361, Training Accuracy:  67.97%
+Epoch: 2, Idx: 500, Training Loss: 0.7129, Training Accuracy:  74.22%
+Epoch: 2, Idx: 600, Training Loss: 0.7074, Training Accuracy:  71.88%
+Epoch: 2, Idx: 700, Training Loss: 0.8050, Training Accuracy:  64.06%
+Epoch: 02, Train Loss: 0.753, Train Acc: 67.75%, Val. Loss: 0.710045, Val. Acc: 68.32%
+Saving model for epoch 2...
+Epoch: 3, Idx: 100, Training Loss: 0.6574, Training Accuracy:  72.66%
+Epoch: 3, Idx: 200, Training Loss: 0.7951, Training Accuracy:  65.62%
+Epoch: 3, Idx: 300, Training Loss: 0.6379, Training Accuracy:  72.66%
+Epoch: 3, Idx: 400, Training Loss: 0.6289, Training Accuracy:  75.78%
+Epoch: 3, Idx: 500, Training Loss: 0.6259, Training Accuracy:  78.91%
+Epoch: 3, Idx: 600, Training Loss: 0.6565, Training Accuracy:  68.75%
+Epoch: 3, Idx: 700, Training Loss: 0.6446, Training Accuracy:  71.88%
+Epoch: 03, Train Loss: 0.714, Train Acc: 69.55%, Val. Loss: 0.693724, Val. Acc: 69.14%
+Saving model for epoch 3...
+Epoch: 4, Idx: 100, Training Loss: 0.6747, Training Accuracy:  75.00%
+Epoch: 4, Idx: 200, Training Loss: 0.6961, Training Accuracy:  72.66%
+Epoch: 4, Idx: 300, Training Loss: 0.6257, Training Accuracy:  71.88%
+Epoch: 4, Idx: 400, Training Loss: 0.6114, Training Accuracy:  80.47%
+Epoch: 4, Idx: 500, Training Loss: 0.6837, Training Accuracy:  68.75%
+Epoch: 4, Idx: 600, Training Loss: 0.6784, Training Accuracy:  69.53%
+Epoch: 4, Idx: 700, Training Loss: 0.6108, Training Accuracy:  72.66%
+Epoch: 04, Train Loss: 0.688, Train Acc: 70.49%, Val. Loss: 0.699759, Val. Acc: 68.54%
+Saving model for epoch 4...
+Epoch: 5, Idx: 100, Training Loss: 0.6430, Training Accuracy:  68.75%
+Epoch: 5, Idx: 200, Training Loss: 0.7087, Training Accuracy:  66.41%
+Epoch: 5, Idx: 300, Training Loss: 0.6873, Training Accuracy:  67.19%
+Epoch: 5, Idx: 400, Training Loss: 0.6948, Training Accuracy:  69.53%
+Epoch: 5, Idx: 500, Training Loss: 0.6682, Training Accuracy:  71.09%
+Epoch: 5, Idx: 600, Training Loss: 0.6406, Training Accuracy:  73.44%
+Epoch: 5, Idx: 700, Training Loss: 0.5969, Training Accuracy:  70.31%
+Epoch: 05, Train Loss: 0.667, Train Acc: 71.43%, Val. Loss: 0.728276, Val. Acc: 67.27%
+Saving model for epoch 5...
+Epoch: 6, Idx: 100, Training Loss: 0.6708, Training Accuracy:  72.66%
+Epoch: 6, Idx: 200, Training Loss: 0.6099, Training Accuracy:  73.44%
+Epoch: 6, Idx: 300, Training Loss: 0.6177, Training Accuracy:  76.56%
+Epoch: 6, Idx: 400, Training Loss: 0.7168, Training Accuracy:  68.75%
+Epoch: 6, Idx: 500, Training Loss: 0.6436, Training Accuracy:  70.31%
+Epoch: 6, Idx: 600, Training Loss: 0.5948, Training Accuracy:  77.34%
+Epoch: 6, Idx: 700, Training Loss: 0.6281, Training Accuracy:  75.00%
+Epoch: 06, Train Loss: 0.648, Train Acc: 72.13%, Val. Loss: 0.673080, Val. Acc: 70.15%
+Saving model for epoch 6...
+Epoch: 7, Idx: 100, Training Loss: 0.5237, Training Accuracy:  75.78%
+Epoch: 7, Idx: 200, Training Loss: 0.6491, Training Accuracy:  74.22%
+Epoch: 7, Idx: 300, Training Loss: 0.6528, Training Accuracy:  71.09%
+Epoch: 7, Idx: 400, Training Loss: 0.7206, Training Accuracy:  69.53%
+Epoch: 7, Idx: 500, Training Loss: 0.7789, Training Accuracy:  62.50%
+Epoch: 7, Idx: 600, Training Loss: 0.6927, Training Accuracy:  66.41%
+Epoch: 7, Idx: 700, Training Loss: 0.5764, Training Accuracy:  72.66%
+Epoch: 07, Train Loss: 0.629, Train Acc: 72.96%, Val. Loss: 0.682262, Val. Acc: 70.23%
+Saving model for epoch 7...
+Epoch: 8, Idx: 100, Training Loss: 0.5051, Training Accuracy:  83.59%
+Epoch: 8, Idx: 200, Training Loss: 0.6606, Training Accuracy:  76.56%
+Epoch: 8, Idx: 300, Training Loss: 0.5006, Training Accuracy:  82.03%
+Epoch: 8, Idx: 400, Training Loss: 0.6038, Training Accuracy:  71.88%
+Epoch: 8, Idx: 500, Training Loss: 0.6266, Training Accuracy:  66.41%
+Epoch: 8, Idx: 600, Training Loss: 0.5611, Training Accuracy:  75.78%
+Epoch: 8, Idx: 700, Training Loss: 0.6929, Training Accuracy:  71.88%
+Epoch: 08, Train Loss: 0.611, Train Acc: 73.64%, Val. Loss: 0.683558, Val. Acc: 70.06%
+Saving model for epoch 8...
+Epoch: 9, Idx: 100, Training Loss: 0.5573, Training Accuracy:  77.34%
+Epoch: 9, Idx: 200, Training Loss: 0.7774, Training Accuracy:  68.75%
+Epoch: 9, Idx: 300, Training Loss: 0.6628, Training Accuracy:  75.78%
+Epoch: 9, Idx: 400, Training Loss: 0.7021, Training Accuracy:  71.88%
+Epoch: 9, Idx: 500, Training Loss: 0.5927, Training Accuracy:  75.00%
+Epoch: 9, Idx: 600, Training Loss: 0.6422, Training Accuracy:  72.66%
+Epoch: 9, Idx: 700, Training Loss: 0.5178, Training Accuracy:  80.47%
+Epoch: 09, Train Loss: 0.592, Train Acc: 74.53%, Val. Loss: 0.678895, Val. Acc: 70.44%
+Saving model for epoch 9...
+Epoch: 10, Idx: 100, Training Loss: 0.6136, Training Accuracy:  69.53%
+Epoch: 10, Idx: 200, Training Loss: 0.7288, Training Accuracy:  74.22%
+Epoch: 10, Idx: 300, Training Loss: 0.6536, Training Accuracy:  70.31%
+Epoch: 10, Idx: 400, Training Loss: 0.7054, Training Accuracy:  74.22%
+Epoch: 10, Idx: 500, Training Loss: 0.5754, Training Accuracy:  75.00%
+Epoch: 10, Idx: 600, Training Loss: 0.5857, Training Accuracy:  72.66%
+Epoch: 10, Idx: 700, Training Loss: 0.5988, Training Accuracy:  73.44%
+Epoch: 10, Train Loss: 0.568, Train Acc: 75.69%, Val. Loss: 0.692571, Val. Acc: 70.35%
+Saving model for epoch 10...
+Epoch: 11, Idx: 100, Training Loss: 0.4458, Training Accuracy:  82.81%
+Epoch: 11, Idx: 200, Training Loss: 0.5742, Training Accuracy:  75.00%
+Epoch: 11, Idx: 300, Training Loss: 0.5191, Training Accuracy:  75.78%
+Epoch: 11, Idx: 400, Training Loss: 0.5563, Training Accuracy:  74.22%
+Epoch: 11, Idx: 500, Training Loss: 0.6288, Training Accuracy:  73.44%
+Epoch: 11, Idx: 600, Training Loss: 0.4682, Training Accuracy:  81.25%
+Epoch: 11, Idx: 700, Training Loss: 0.5046, Training Accuracy:  76.56%
+Epoch: 11, Train Loss: 0.547, Train Acc: 76.62%, Val. Loss: 0.717406, Val. Acc: 69.53%
+Saving model for epoch 11...
+Epoch: 12, Idx: 100, Training Loss: 0.5024, Training Accuracy:  80.47%
+Epoch: 12, Idx: 200, Training Loss: 0.4960, Training Accuracy:  82.03%
+Epoch: 12, Idx: 300, Training Loss: 0.4725, Training Accuracy:  77.34%
+Epoch: 12, Idx: 400, Training Loss: 0.5653, Training Accuracy:  75.00%
+Epoch: 12, Idx: 500, Training Loss: 0.5066, Training Accuracy:  82.81%
+Epoch: 12, Idx: 600, Training Loss: 0.6402, Training Accuracy:  68.75%
+Epoch: 12, Idx: 700, Training Loss: 0.5813, Training Accuracy:  75.78%
+Epoch: 12, Train Loss: 0.523, Train Acc: 77.63%, Val. Loss: 0.756856, Val. Acc: 68.70%
+Saving model for epoch 12...
+Epoch: 13, Idx: 100, Training Loss: 0.5851, Training Accuracy:  75.78%
+Epoch: 13, Idx: 200, Training Loss: 0.5892, Training Accuracy:  74.22%
+Epoch: 13, Idx: 300, Training Loss: 0.4345, Training Accuracy:  78.91%
+Epoch: 13, Idx: 400, Training Loss: 0.5221, Training Accuracy:  78.91%
+Epoch: 13, Idx: 500, Training Loss: 0.5439, Training Accuracy:  73.44%
+Epoch: 13, Idx: 600, Training Loss: 0.5251, Training Accuracy:  75.78%
+Epoch: 13, Idx: 700, Training Loss: 0.4408, Training Accuracy:  81.25%
+Epoch: 13, Train Loss: 0.500, Train Acc: 78.68%, Val. Loss: 0.757726, Val. Acc: 69.05%
+Saving model for epoch 13...
