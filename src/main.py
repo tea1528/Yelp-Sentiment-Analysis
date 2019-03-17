@@ -8,6 +8,8 @@ import torch.optim as optim
 import numpy as np
 import argparse
 from models.RCNN import RCNN
+from models.selfAttention import SelfAttention
+from models.LSTM import LSTMClassifier
 import yaml
 
 

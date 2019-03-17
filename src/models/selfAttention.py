@@ -33,7 +33,7 @@ class SelfAttention(nn.Module):
 
         self.word_embeddings = nn.Embedding(vocab_size, embedding_length)
         self.word_embeddings.weights = nn.Parameter(weights, requires_grad=False)
-        self.dropout = nn.Dropout(0.5)
+        self.dropout = nn.Dropout(0.7)
         self.bilstm = nn.LSTM(embedding_length, hidden_size, bidirectional=True)
         # We will use da = 350, r = 30 & penalization_coeff = 1 as per given in the self-attention original ICLR paper
         self.W_s1 = nn.Linear(2 * hidden_size, 350)

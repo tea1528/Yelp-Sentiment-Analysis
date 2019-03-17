@@ -1,5 +1,5 @@
 import torch
-from torch.optim as Optimizer
+from torch.optim import Optimizer
 import math
 
 class CosineAnnealingWithRestartsLR(_LRScheduler):

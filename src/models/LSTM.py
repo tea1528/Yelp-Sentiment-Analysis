@@ -27,7 +27,7 @@ class LSTMClassifier(nn.Module):
         self.hidden_size = hidden_size
         self.vocab_size = vocab_size
         self.embedding_length = embedding_length
-
+        self.dropout = nn.Dropout(p=0.7)
         self.word_embeddings = nn.Embedding(vocab_size, embedding_length)  # Initializing the look-up table.
         self.word_embeddings.weight = nn.Parameter(weights,
                                                    requires_grad=False)  # Assigning the look-up table to the pre-trained GloVe word embedding.
@@ -60,6 +60,7 @@ class LSTMClassifier(nn.Module):
             h_0 = Variable(torch.zeros(1, batch_size, self.hidden_size).cuda())
             c_0 = Variable(torch.zeros(1, batch_size, self.hidden_size).cuda())
         output, (final_hidden_state, final_cell_state) = self.lstm(input, (h_0, c_0))
+        final_hidden_state = self.dropout(final_hidden_state)
         final_output = self.label(final_hidden_state[
                                       -1])  # final_hidden_state.size() = (1, batch_size, hidden_size) & final_output.size() = (batch_size, output_size)
 
