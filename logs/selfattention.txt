@@ -1,0 +1,54 @@
+-------Loading Configuration--------
+
+-------Loading Data--------
+
+Length of Text Vocabulary: 82174
+Vector size of Text Vocabulary:  torch.Size([82174, 300])
+Label Length: 5
+Label Mapping:  defaultdict(<function _default_unk_index at 0x7fb450006158>, {'5': 0, '4': 1, '1': 2, '3': 3, '2': 4})
+Most Frequent:  [('the', 552891), ('and', 387193), ('i', 340429), ('a', 280821), ('to', 273912), ('was', 204645), ('it', 165267), ('of', 159128), ('is', 137961), ('for', 133581), ('in', 125574), ('my', 108601), ('that', 100386), ('we', 93376), ('they', 93247), ('you', 91329), ('with', 91262), ('this', 90064), ('but', 83384), ('on', 77544)]
+/home/jchengac/.local/lib/python3.6/site-packages/torch/nn/functional.py:1320: UserWarning: nn.functional.tanh is deprecated. Use torch.tanh instead.
+  warnings.warn("nn.functional.tanh is deprecated. Use torch.tanh instead.")
+Epoch: 1, Idx: 200, Training Loss: 0.9266, Training Accuracy:  61.72%
+Epoch: 1, Idx: 300, Training Loss: 0.6832, Training Accuracy:  79.69%
+Epoch: 1, Idx: 400, Training Loss: 0.7567, Training Accuracy:  67.97%
+Epoch: 1, Idx: 500, Training Loss: 0.7980, Training Accuracy:  67.19%
+Epoch: 1, Idx: 600, Training Loss: 0.8386, Training Accuracy:  60.94%
+Epoch: 1, Idx: 700, Training Loss: 0.5986, Training Accuracy:  76.56%
+Epoch: 01, Train Loss: 0.857, Train Acc: 64.09%, Val. Loss: 0.904926, Val. Acc: 64.25%
+Saving model for epoch 1...
+Epoch: 2, Idx: 100, Training Loss: 0.6668, Training Accuracy:  71.88%
+Epoch: 2, Idx: 200, Training Loss: 0.6274, Training Accuracy:  71.88%
+Epoch: 2, Idx: 300, Training Loss: 0.6892, Training Accuracy:  76.56%
+Epoch: 2, Idx: 400, Training Loss: 0.6091, Training Accuracy:  74.22%
+Epoch: 2, Idx: 500, Training Loss: 0.6000, Training Accuracy:  75.78%
+Epoch: 2, Idx: 600, Training Loss: 0.7501, Training Accuracy:  68.75%
+Epoch: 2, Idx: 700, Training Loss: 0.7199, Training Accuracy:  68.75%
+Epoch: 02, Train Loss: 0.697, Train Acc: 70.44%, Val. Loss: 0.955342, Val. Acc: 61.51%
+Saving model for epoch 2...
+Epoch: 3, Idx: 100, Training Loss: 0.6173, Training Accuracy:  75.00%
+Epoch: 3, Idx: 200, Training Loss: 0.5366, Training Accuracy:  79.69%
+Epoch: 3, Idx: 300, Training Loss: 0.5933, Training Accuracy:  75.00%
+Epoch: 3, Idx: 400, Training Loss: 0.7835, Training Accuracy:  71.09%
+Epoch: 3, Idx: 500, Training Loss: 0.6953, Training Accuracy:  67.97%
+Epoch: 3, Idx: 600, Training Loss: 0.6046, Training Accuracy:  78.12%
+Epoch: 3, Idx: 700, Training Loss: 0.4770, Training Accuracy:  79.69%
+Epoch: 03, Train Loss: 0.625, Train Acc: 73.32%, Val. Loss: 0.871205, Val. Acc: 64.92%
+Saving model for epoch 3...
+Epoch: 4, Idx: 100, Training Loss: 0.5029, Training Accuracy:  75.78%
+Epoch: 4, Idx: 200, Training Loss: 0.6869, Training Accuracy:  68.75%
+Epoch: 4, Idx: 300, Training Loss: 0.5275, Training Accuracy:  79.69%
+Epoch: 4, Idx: 400, Training Loss: 0.6026, Training Accuracy:  77.34%
+Epoch: 4, Idx: 500, Training Loss: 0.4974, Training Accuracy:  78.91%
+Epoch: 4, Idx: 600, Training Loss: 0.5163, Training Accuracy:  78.12%
+Epoch: 4, Idx: 700, Training Loss: 0.4831, Training Accuracy:  78.91%
+Epoch: 04, Train Loss: 0.547, Train Acc: 76.79%, Val. Loss: 0.911355, Val. Acc: 58.51%
+Saving model for epoch 4...
+Epoch: 5, Idx: 100, Training Loss: 0.3942, Training Accuracy:  83.59%
+Epoch: 5, Idx: 200, Training Loss: 0.5526, Training Accuracy:  78.91%
+Epoch: 5, Idx: 300, Training Loss: 0.3739, Training Accuracy:  83.59%
+Epoch: 5, Idx: 400, Training Loss: 0.4461, Training Accuracy:  82.03%
+Epoch: 5, Idx: 500, Training Loss: 0.4023, Training Accuracy:  85.16%
+Epoch: 5, Idx: 600, Training Loss: 0.4276, Training Accuracy:  80.47%
+Epoch: 5, Idx: 700, Training Loss: 0.3882, Training Accuracy:  86.72%
+Epoch: 05, Train Loss: 0.440, Train Acc: 81.54%, Val. Loss: 1.308639, Val. Acc: 43.94%
