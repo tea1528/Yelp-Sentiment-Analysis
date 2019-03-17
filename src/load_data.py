@@ -58,7 +58,7 @@ def load_dataset(embed_len=300, batch_size=32):
         fields=fields)
     
     valid_data = data.TabularDataset(
-        path=config['training']['train_path'], format='csv', 
+        path=config['training']['valid_path'], format='csv', 
         skip_header=True,
         fields=fields)
 
