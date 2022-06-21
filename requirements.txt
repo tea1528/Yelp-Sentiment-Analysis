@@ -3,7 +3,7 @@ nltk==3.4.5
 scipy==1.0.0
 spacy==2.0.16
 torch==0.4.0
-numpy==1.14.2
+numpy==1.22.0
 torchtext==0.2.3
 scikit_learn==0.20.3
 PyYAML==5.1
